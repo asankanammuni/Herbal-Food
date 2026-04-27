@@ -2,47 +2,84 @@
 <html lang="en">
 <head>
     <meta name="google-site-verification" content="pegyvo7prpjsLMw8EW8nGGKfndhsNLGi1PRnHIiL9DM" /> 
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Herbal Food Corner - Ratmalana</title>
+    
     <style>
-        :root { --primary: #1b4332; --secondary: #2d6a4f; --accent: #ff9f1c; --light: #f8fdfa; --uber: #06C167; --pickme: #FED52F; }
-        body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; background: var(--light); color: #333; }
+        :root { 
+            --primary: #1b4332; 
+            --secondary: #2d6a4f; 
+            --accent: #ff9f1c; 
+            --light: #f8fdfa; 
+            --uber: #06C167; 
+            --pickme: #FED52F; 
+        }
+
+        body { 
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; 
+            margin: 0; 
+            background: var(--light); 
+            color: #333; 
+            line-height: 1.6;
+        }
         
         .cover {
-            height: 40vh;
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+            height: 50vh;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
                         url('https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=1000&q=80');
-            background-size: cover; background-position: center;
-            display: flex; flex-direction: column; justify-content: center; align-items: center;
-            color: white; text-align: center; padding: 10px;
+            background-size: cover; 
+            background-position: center;
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; 
+            align-items: center;
+            color: white; 
+            text-align: center; 
+            padding: 20px;
         }
-        .cover h1 { font-size: 1.8rem; margin: 0; }
+
+        .cover h1 { font-size: 2.2rem; margin: 0; letter-spacing: 1px; text-shadow: 2px 2px 4px rgba(0,0,0,0.6); }
+        .cover p { font-size: 1.1rem; margin-top: 10px; font-style: italic; }
         
-        .btn-group { display: flex; gap: 10px; margin-top: 15px; flex-wrap: wrap; justify-content: center; }
-        .btn { padding: 12px 20px; border-radius: 50px; text-decoration: none; font-weight: bold; font-size: 14px; color: white; display: inline-flex; align-items: center; border: none; cursor: pointer; }
+        .btn-group { display: flex; gap: 12px; margin-top: 20px; flex-wrap: wrap; justify-content: center; }
+        
+        .btn { padding: 12px 25px; border-radius: 50px; text-decoration: none; font-weight: bold; font-size: 14px; color: white; display: inline-flex; align-items: center; transition: transform 0.2s; }
+        .btn:active { transform: scale(0.95); }
         .btn-call { background: #3498db; }
         .btn-wa { background: #25D366; }
         .btn-uber { background: var(--uber); }
-        .btn-pickme { background: var(--pickme); }
+        .btn-pickme { background: var(--pickme); color: #000; }
 
-        .section { max-width: 600px; margin: auto; padding: 20px 15px; }
-        .menu-card { background: white; padding: 20px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
-        h2 { color: var(--primary); text-align: center; font-size: 1.4rem; border-bottom: 2px solid #f0f0f0; padding-bottom: 10px; margin-top: 30px; }
-        h2:first-child { margin-top: 0; }
+        .section { max-width: 600px; margin: auto; padding: 20px 15px; position: relative; top: -30px; }
+        .card { background: white; padding: 25px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); margin-bottom: 20px; }
+
+        h2 { color: var(--primary); text-align: center; font-size: 1.4rem; margin-bottom: 20px; border-bottom: 2px solid #f0f0f0; padding-bottom: 10px; }
         
-        .menu-item { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid #f9f9f9; }
-        .sinhala { font-size: 0.85rem; color: #666; }
-        .price { color: var(--secondary); font-weight: bold; }
+        .menu-item { display: flex; justify-content: space-between; align-items: center; padding: 15px 0; border-bottom: 1px solid #f1f1f1; }
+        .menu-item:last-child { border-bottom: none; }
+        .sinhala { font-size: 0.9rem; color: #777; display: block; margin-top: 2px; }
+        .price { color: var(--secondary); font-weight: 700; font-size: 1.1rem; }
 
-        .order-box { text-align: center; background: #fff; padding: 15px; border-radius: 15px; margin-bottom: 20px; border: 1px dashed #ccc; }
+        .info-box { text-align: center; margin-top: 25px; border-top: 1px solid #eee; padding-top: 20px; }
+        
+        .email-link { 
+            color: var(--primary); 
+            text-decoration: none; 
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 5px;
+        }
 
-        .info-box { margin-top: 20px; font-size: 0.9rem; line-height: 1.6; text-align: center; }
-        .map-container { margin: 20px 0; border-radius: 15px; overflow: hidden; height: 250px; border: 1px solid #ddd; }
+        .map-container { 
+            margin-top: 25px; 
+            border-radius: 15px; 
+            overflow: hidden; 
+            height: 350px; 
+            border: 1px solid #ddd; 
+        }
 
-        .footer { background: var(--primary); color: white; padding: 30px 15px; text-align: center; font-size: 14px; }
-        .footer a { color: var(--accent); text-decoration: none; }
+        .footer { background: var(--primary); color: white; padding: 40px 15px; text-align: center; font-size: 14px; }
     </style>
 </head>
 <body>
@@ -51,36 +88,38 @@
         <h1>HERBAL FOOD CORNER</h1>
         <p>Nature's Taste for Healthy Living</p>
         <div class="btn-group">
-            <a href="tel:0702237857" class="btn btn-call">📞 CALL</a>
+            <a href="tel:0702237857" class="btn btn-call">📞 CALL NOW</a>
             <a href="https://wa.me/94702237857" class="btn btn-wa">💬 WHATSAPP</a>
         </div>
     </div>
 
     <div class="section">
-        <div class="order-box">
-            <h2 style="margin-top: 0; border: none;">Order Online</h2>
+        <div class="card" style="text-align: center;">
+            <h2 style="border:none; margin-bottom: 5px;">Order Online</h2>
+            <p style="font-size: 0.9rem; color: #666;">Get healthy food delivered to your doorstep</p>
             <div class="btn-group">
-                <a href="https://www.ubereats.com/store-browse-uuid/c9e183bc-28a0-5530-aede-dcf3008208b2?diningMode=DELIVERY" target="_blank" class="btn btn-uber">Uber Eats</a>
-                <a href="https://pickme-app-sl.onelink.me/Fore/tamt3j1o" target="_blank" class="btn btn-pickme">PickMe</a>
+                <a href="https://www.ubereats.com/store-browse-uuid/c9e183bc-28a0-5530-aede-dcf3008208b2" target="_blank" class="btn btn-uber">Uber Eats</a>
+                <a href="https://pickme-app-sl.onelink.me/Fore/tamt3j1o" target="_blank" class="btn btn-pickme">PickMe Food</a>
             </div>
         </div>
 
-        <div class="menu-card">
-            <h2>Menu</h2>
-            <div class="menu-item"><div><strong>Herbal porridge</strong><br><span class="sinhala">කොළ කැඳ</span></div><span class="price">Rs. 140</span></div>
-            <div class="menu-item"><div><strong>Ragi porridge</strong><br><span class="sinhala">කුරක්කන් කැඳ</span></div><span class="price">Rs. 140</span></div>
-            <div class="menu-item"><div><strong>Garlic porridge</strong><br><span class="sinhala">සුදුලූණු කැඳ</span></div><span class="price">Rs. 140</span></div>
-            <div class="menu-item"><div><strong>Sago jaggery drink</strong><br><span class="sinhala">පැණි සව්</span></div><span class="price">Rs. 170</span></div>
-            <div class="menu-item"><div><strong>Chick peas</strong><br><span class="sinhala">කඩල</span></div><span class="price">Rs. 170</span></div>
-            <div class="menu-item"><div><strong>Red cowpea</strong><br><span class="sinhala">රතු කව්පි</span></div><span class="price">Rs. 220</span></div>
+        <div class="card">
+            <h2>Our Healthy Menu</h2>
+            <div class="menu-item"><div><strong>Herbal porridge</strong><span class="sinhala">කොළ කැඳ</span></div><span class="price">Rs. 140</span></div>
+            <div class="menu-item"><div><strong>Ragi porridge</strong><span class="sinhala">කුරක්කන් කැඳ</span></div><span class="price">Rs. 140</span></div>
+            <div class="menu-item"><div><strong>Garlic porridge</strong><span class="sinhala">සුදුලූණු කැඳ</span></div><span class="price">Rs. 140</span></div>
+            <div class="menu-item"><div><strong>Sago jaggery drink</strong><span class="sinhala">පැණි සව්</span></div><span class="price">Rs. 170</span></div>
+            <div class="menu-item"><div><strong>Chick peas</strong><span class="sinhala">කඩල</span></div><span class="price">Rs. 170</span></div>
+            <div class="menu-item"><div><strong>Red cowpea</strong><span class="sinhala">රතු කව්පි</span></div><span class="price">Rs. 220</span></div>
 
             <div class="info-box">
-                <p><strong>🕒 Opening Hours:</strong><br>Monday - Sunday: 6:00 AM - 11:30 AM</p>
-                <p><strong>📧 Email Us:</strong><br><a href="mailto:herbalfoodcorner@gmail.com" style="color:var(--secondary); text-decoration: none;">herbalfoodcorner@gmail.com</a></p>
+                <p><strong>🕒 Opening Hours:</strong><br>Mon - Sun: 6:00 AM - 11:30 AM</p>
+                <p><strong>📧 Email:</strong><br>
+                <a href="mailto:herbalfoodcorner@gmail.com" class="email-link">herbalfoodcorner@gmail.com</a></p>
             </div>
 
             <div class="map-container">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3961.547194689617!2d79.8856!3d6.8247!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae25bad762140f7%3A0xc36706e23253b47b!2s248%20Galle%20Rd%2C%20Ratmalana!5e0!3m2!1sen!2slk!4v1712345678901!5m2!1sen!2slk" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3911.411017306569!2d79.86798435739368!3d6.82384413873851!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae25bb6454c5ab7%3A0xacc16c15a2d7197c!2sHerbal%20Food%20Corner!5e0!3m2!1sen!2slk!4v1777272903947!5m2!1sen!2slk" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
         </div>
     </div>
@@ -88,7 +127,7 @@
     <div class="footer">
         <p><strong>248/1, Galle Road, Ratmalana</strong></p>
         <p>Contact: 070 223 7857</p>
-        <p style="margin-top:15px;"><a href="https://www.google.com/maps/search/?api=1&query=6.8247,79.8856">📍 Click for GPS Navigation</a></p>
+        <p style="margin-top:25px; font-size: 11px; opacity: 0.7;">© 2026 Herbal Food Corner. All rights reserved.</p>
     </div>
 
 </body>
